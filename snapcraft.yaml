@@ -9,18 +9,33 @@ grade: stable
 confinement: strict
 icon: icon.png
 
+slots:
+    tty-s1:
+        interface: serial-port
+        path: /dev/ttyS1
+    tty-s2:
+        interface: serial-port
+        path: /dev/ttyS2
+    tty-s3:
+        interface: serial-port
+        path: /dev/ttyS3
+    tty-acm0:
+        interface: serial-port
+        path: /dev/ttyACM0
+
+
 parts:
-  grub-prepare:
-    plugin: nil
-    stage-packages:
-      - grub-efi-amd64-signed
-      - grub-pc-bin
-      - shim-signed
-    prime: [ -* ]
-  grub:
-    source: .
-    build-packages:
-      - grub-common
-    plugin: make
-    after: [grub-prepare]
+    grub-prepare:
+        plugin: nil
+        stage-packages:
+            - grub-efi-amd64-signed
+            - grub-pc-bin
+            - shim-signed
+        prime: [ -* ]
+    grub:
+        source: .
+        build-packages:
+            - grub-common
+        plugin: make
+        after: [grub-prepare]
 
