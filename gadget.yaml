@@ -19,6 +19,8 @@ volumes:
         filesystem: vfat
         filesystem-label: system-boot
         size: 50M
+        update:
+          edition: 2
         content:
           - source: grubx64.efi
             target: EFI/boot/grubx64.efi
