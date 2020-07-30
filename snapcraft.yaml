@@ -9,6 +9,20 @@ grade: stable
 confinement: strict
 icon: icon.png
 
+slots:
+  tpe-valina:
+    interface: serial-port
+    path: /dev/ttyS1
+  printer-ticket:
+    interface: serial-port
+    path: /dev/ttyS2
+  printer-qrcode:
+    interface: serial-port
+    path: /dev/ttyS3
+  reader-qrcode:
+    interface: serial-port
+    path: /dev/ttyACM0
+
 parts:
   grub-prepare:
     plugin: nil
